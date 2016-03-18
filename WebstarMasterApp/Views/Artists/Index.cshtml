@@ -3,31 +3,41 @@
 @{
     ViewBag.Title = "Index";
 }
+<main>
+    <h2>Artists</h2>
+    @if (User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })
+        </p>
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
 
-<h2>Index</h2>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="text-right">
+                        @Html.ActionLink("Details", "Details", new { id = item.ArtistId }, new { @class = "btn btn-primary btn-sm" }) 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ArtistId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ArtistId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ArtistId })
-        </td>
-    </tr>
-}
-
-</table>
+                        @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ArtistId }, new { @class = "btn btn-primary btn-sm" }) 
+                            }
+                        @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ArtistId }, new { @class = "btn btn-primary btn-sm" })
+                            }
+                </td>
+            </tr>
+        }
+    </table>
+</main>

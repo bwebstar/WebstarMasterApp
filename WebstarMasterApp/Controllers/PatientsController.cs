@@ -14,6 +14,7 @@ namespace WebstarMasterApp.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize]
         // GET: Patients
         public ActionResult Index()
         {
@@ -21,6 +22,7 @@ namespace WebstarMasterApp.Controllers
             return View(patients.ToList());
         }
 
+        [Authorize]
         // GET: Patients/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +38,7 @@ namespace WebstarMasterApp.Controllers
             return View(patient);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Patients/Create
         public ActionResult Create()
         {
@@ -43,6 +46,7 @@ namespace WebstarMasterApp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Patients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -61,6 +65,7 @@ namespace WebstarMasterApp.Controllers
             return View(patient);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Patients/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -77,6 +82,7 @@ namespace WebstarMasterApp.Controllers
             return View(patient);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Patients/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -94,6 +100,7 @@ namespace WebstarMasterApp.Controllers
             return View(patient);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Patients/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -109,6 +116,7 @@ namespace WebstarMasterApp.Controllers
             return View(patient);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Patients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

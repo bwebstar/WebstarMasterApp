@@ -16,6 +16,10 @@ body {
   color: #64686d;
   line-height: 26px;
 }
+main {
+    min-height:600px;
+    margin-bottom:20px;
+}
 h1,
 h2,
 h3,

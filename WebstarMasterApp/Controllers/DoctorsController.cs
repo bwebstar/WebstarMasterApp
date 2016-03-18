@@ -14,12 +14,14 @@ namespace WebstarMasterApp.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize]
         // GET: Doctors
         public ActionResult Index()
         {
             return View(db.Doctors.ToList());
         }
 
+        [Authorize]
         // GET: Doctors/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,12 +37,14 @@ namespace WebstarMasterApp.Controllers
             return View(doctor);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Doctors/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Doctors/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -58,6 +62,7 @@ namespace WebstarMasterApp.Controllers
             return View(doctor);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Doctors/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -73,6 +78,7 @@ namespace WebstarMasterApp.Controllers
             return View(doctor);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Doctors/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -89,6 +95,7 @@ namespace WebstarMasterApp.Controllers
             return View(doctor);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Doctors/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -104,6 +111,7 @@ namespace WebstarMasterApp.Controllers
             return View(doctor);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Doctors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

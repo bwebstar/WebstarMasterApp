@@ -14,6 +14,7 @@ namespace WebstarMasterApp.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize]
         // GET: Albums
         public ActionResult Index()
         {
@@ -21,6 +22,7 @@ namespace WebstarMasterApp.Controllers
             return View(albums.ToList());
         }
 
+        [Authorize]
         // GET: Albums/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +38,7 @@ namespace WebstarMasterApp.Controllers
             return View(album);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Albums/Create
         public ActionResult Create()
         {
@@ -44,6 +47,7 @@ namespace WebstarMasterApp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Albums/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -63,6 +67,7 @@ namespace WebstarMasterApp.Controllers
             return View(album);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Albums/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -80,6 +85,7 @@ namespace WebstarMasterApp.Controllers
             return View(album);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Albums/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -98,6 +104,7 @@ namespace WebstarMasterApp.Controllers
             return View(album);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Albums/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -113,6 +120,7 @@ namespace WebstarMasterApp.Controllers
             return View(album);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Albums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

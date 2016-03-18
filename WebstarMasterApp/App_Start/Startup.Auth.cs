@@ -50,13 +50,13 @@ namespace WebstarMasterApp
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: "e8wtlxVpLi737sZmmtFQhjxTg",
+               consumerSecret: "CCzZU9TC6kRPGu9oHwtEEq35aN32ow30MOo8whI2mKKj3ZKYk7");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1652571291675056",
+               appSecret: "bce0c510b1cbc190ad1c0fd8ffbc5b5c");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
